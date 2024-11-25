@@ -195,10 +195,11 @@
             android:layout_height="10dp"
             android:progress="80"
             android:progressDrawable="@drawable/progress_bar"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_likeCount"
-            app:layout_marginTop="8dp" />
+             />
 
         <!-- 좋아요 버튼 -->
         <Button
