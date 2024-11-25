@@ -1,15 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainFragment">
+    android:background="@color/BackGround_BK">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- 상단 -->
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_logo"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MOVIE IN"
+            android:textColor="@color/Sub_Yellow"
+            android:layout_marginLeft="7dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="240dp"
+            android:src="@drawable/ic_profile" />
+    </LinearLayout>
+
+    <!-- 서치바 -->
+    <LinearLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/search_bar_background"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Search"
+            android:textColor="@color/middle_gray"
+            android:textColorHint="@color/dark_gray" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_search" />
+    </LinearLayout>
+
+    <!-- 오늘의 추천 영화 -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="50dp"
-        android:text="main" />
+        android:id="@+id/recommendedMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘의 추천 영화"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <!-- 영화 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recommendedMoviesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/recommendedMovies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <!-- 최근 개봉한 영화 -->
+    <TextView
+        android:id="@+id/recentMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최근 개봉한 영화"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recommendedMoviesRecycler"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 영화 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recentMoviesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/recentMovies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+         />
+
+    <!-- 리뷰가 좋은 영화 -->
+    <TextView
+        android:id="@+id/reviewMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰가 좋은 영화"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recentMoviesRecycler"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 영화 리스트 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewMoviesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/reviewMovies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
