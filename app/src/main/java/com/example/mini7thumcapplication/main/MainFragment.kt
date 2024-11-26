@@ -1,60 +1,79 @@
 package com.example.mini7thumcapplication.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mini7thumcapplication.databinding.FragmentMainBinding
 import com.example.mini7thumcapplication.R
+import com.example.mini7thumcapplication.databinding.FragmentDetailBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentMainBinding
+
+    private lateinit var recommendedMoviesAdapter: MovieAdapter
+    private lateinit var recentMoviesAdapter: MovieAdapter
+    private lateinit var reviewMoviesAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        setupRecyclerViews()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setupRecyclerViews() {
+        // 샘플 데이터 생성
+        val recommendedMovies = getRecommendedMovies()
+        val recentMovies = getRecentMovies()
+        val reviewMovies = getReviewMovies()
+
+        // 어댑터 설정
+        recommendedMoviesAdapter = MovieAdapter(recommendedMovies)
+        recentMoviesAdapter = MovieAdapter(recentMovies)
+        reviewMoviesAdapter = MovieAdapter(reviewMovies)
+
+        // RecyclerView에 어댑터 설정
+        binding.recommendedMoviesRecycler.adapter = recommendedMoviesAdapter
+        binding.recentMoviesRecycler.adapter = recentMoviesAdapter
+        binding.reviewMoviesRecycler.adapter = reviewMoviesAdapter
+
+        // 레이아웃 매니저 설정
+        binding.recommendedMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recentMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.reviewMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
+
+    // [오늘의 추천 영화] 샘플 데이터
+    private fun getRecommendedMovies(): List<MovieData> {
+        return listOf(
+            MovieData("조커", R.drawable.item_film_temporary),
+            MovieData("베테랑2", R.drawable.item_film_temporary),
+            MovieData("대도시의 사랑법", R.drawable.item_film_temporary),
+        )
+    }
+
+    // [최근 개봉한 영화] 샘플 데이터
+    private fun getRecentMovies(): List<MovieData> {
+        return listOf(
+            MovieData("베테랑2", R.drawable.item_film_temporary),
+            MovieData("조커", R.drawable.item_film_temporary),
+            MovieData("파묘", R.drawable.item_film_temporary),
+        )
+    }
+
+    // [리뷰가 좋은 영화] 샘플 데이터
+    private fun getReviewMovies(): List<MovieData> {
+        return listOf(
+            MovieData("대도시의 사랑법", R.drawable.item_film_temporary),
+            MovieData("파묘", R.drawable.item_film_temporary),
+            MovieData("조커", R.drawable.item_film_temporary),
+        )
+    }
+
 }
