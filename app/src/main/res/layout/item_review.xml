@@ -7,6 +7,8 @@
     android:background="@drawable/item_review_recyclerview"
     android:padding="15dp">
 
+
+
     <!-- Thumbnail or Icon -->
     <ImageView
         android:id="@+id/item_image"
@@ -65,12 +67,23 @@
         android:layout_marginStart="8dp" />
 
     <TextView
+        android:id="@+id/star_sum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
         app:layout_constraintStart_toEndOf="@id/iv_unfill_item_star5"
         app:layout_constraintTop_toTopOf="@id/iv_unfill_item_star5"
         android:layout_marginStart="10dp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_delete"
+        app:layout_constraintStart_toEndOf="@id/star_sum"
+        app:layout_constraintTop_toTopOf="@id/star_sum"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="180dp"/>
 
     <!-- Review contents -->
     <TextView
