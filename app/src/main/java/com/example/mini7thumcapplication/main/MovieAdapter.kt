@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mini7thumcapplication.databinding.ItemMovieRecyclerviewBinding
 
-class MovieAdapter(private val movies: List<MovieData>) :
-    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(
+    private val movies: List<MovieData>,
+    private val onItemClick: (MovieData) -> Unit
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     class MovieViewHolder(val binding: ItemMovieRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -23,6 +25,10 @@ class MovieAdapter(private val movies: List<MovieData>) :
 
         holder.binding.movieImage.setImageResource(movie.m_image)
         holder.binding.movieTitle.text = movie.title
+
+        holder.itemView.setOnClickListener {
+            onItemClick(movie)
+        }
     }
 
     override fun getItemCount(): Int = movies.size

@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mini7thumcapplication.R
 import com.example.mini7thumcapplication.databinding.FragmentDetailBinding
-import com.example.mini7thumcapplication.databinding.ItemReviewRecyclerviewBinding
 
 class DetailFragment : Fragment() {
 
@@ -21,17 +19,25 @@ class DetailFragment : Fragment() {
     private lateinit var reviewadapter:ReviewAdapter
     val rDatas=mutableListOf<ReviewData>()
 
+    private var likeCount = 0
+    private var dislikeCount = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
+
+        val movieTitle = arguments?.getString("movieTitle") ?: "영화 제목 없음"
+        binding.movieTitle.text = movieTitle
+
         setupRecyclerView()
+        setupLikeDislikeButtons()
+
         return binding.root
     }
 
     private fun setupRecyclerView() {
-        // [감독 | 주연] 샘플 데이터 생성
         val profileData = listOf(
             ProfileData("장재현", "감독", R.drawable.item_film_temporary),
             ProfileData("최민식", "김상덕 역", R.drawable.item_film_temporary),
@@ -51,9 +57,6 @@ class DetailFragment : Fragment() {
         initializelist()
         initRecylerview()
 
-
-
-
         // 스포일러 토글
         binding.categoryToggleIv.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -66,12 +69,32 @@ class DetailFragment : Fragment() {
                 binding.categoryToggleIv.trackTintList = ContextCompat.getColorStateList(requireContext(), R.color.T_gray)
             }
         }
+    }
 
+    // <좋아요 / 싫어요> 관련 함수
+    private fun setupLikeDislikeButtons() {
+        updateLikeDislikeUI()
 
+        binding.btnLike.setOnClickListener {
+            likeCount++
+            updateLikeDislikeUI()
+        }
 
+        binding.btnDislike.setOnClickListener {
+            dislikeCount++
+            updateLikeDislikeUI()
+        }
+    }
 
+    private fun updateLikeDislikeUI() {
+        binding.likeCount.text = likeCount.toString()
+        binding.dislikeCount.text = dislikeCount.toString()
 
-
+        val total = likeCount + dislikeCount
+        if (total > 0) {
+            val likeRatio = (likeCount * 100) / total
+            binding.likeDislikeProgress.progress = likeRatio
+        }
     }
 
     private fun initRecylerview() {
@@ -81,15 +104,11 @@ class DetailFragment : Fragment() {
         binding.reviewRecyler.layoutManager = LinearLayoutManager(requireContext())
     }
 
-
     private fun initializelist() {
         with(rDatas) {
 
             add(ReviewData("12",true,true,true,true,true, "10", "너무 재미있어요", "2024.12.12"))
         }
     }
-
-
-
 
 }
