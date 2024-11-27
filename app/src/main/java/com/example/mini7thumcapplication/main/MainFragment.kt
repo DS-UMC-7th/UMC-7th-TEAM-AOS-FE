@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mini7thumcapplication.Detail.DetailFragment
 import com.example.mini7thumcapplication.databinding.FragmentMainBinding
 import com.example.mini7thumcapplication.R
 import com.example.mini7thumcapplication.databinding.FragmentDetailBinding
@@ -28,26 +29,47 @@ class MainFragment : Fragment() {
     }
 
     private fun setupRecyclerViews() {
-        // 샘플 데이터 생성
         val recommendedMovies = getRecommendedMovies()
         val recentMovies = getRecentMovies()
         val reviewMovies = getReviewMovies()
 
-        // 어댑터 설정
-        recommendedMoviesAdapter = MovieAdapter(recommendedMovies)
-        recentMoviesAdapter = MovieAdapter(recentMovies)
-        reviewMoviesAdapter = MovieAdapter(reviewMovies)
+        recommendedMoviesAdapter = MovieAdapter(recommendedMovies) { movie ->
+            navigateToDetail(movie)
+        }
+        recentMoviesAdapter = MovieAdapter(recentMovies) { movie ->
+            navigateToDetail(movie)
+        }
+        reviewMoviesAdapter = MovieAdapter(reviewMovies) { movie ->
+            navigateToDetail(movie)
+        }
 
-        // RecyclerView에 어댑터 설정
         binding.recommendedMoviesRecycler.adapter = recommendedMoviesAdapter
-        binding.recentMoviesRecycler.adapter = recentMoviesAdapter
-        binding.reviewMoviesRecycler.adapter = reviewMoviesAdapter
+        binding.recommendedMoviesRecycler.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        // 레이아웃 매니저 설정
-        binding.recommendedMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.recentMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.reviewMoviesRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recentMoviesRecycler.adapter = recentMoviesAdapter
+        binding.recentMoviesRecycler.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        binding.reviewMoviesRecycler.adapter = reviewMoviesAdapter
+        binding.reviewMoviesRecycler.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
+
+    private fun navigateToDetail(movie: MovieData) {
+        val detailFragment = DetailFragment().apply {
+            arguments = Bundle().apply {
+                putString("movieTitle", movie.title)
+                putInt("movieImage", movie.m_image)
+            }
+        }
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, detailFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 
     // [오늘의 추천 영화] 샘플 데이터
     private fun getRecommendedMovies(): List<MovieData> {

@@ -20,6 +20,13 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
+
+        val movieTitle = arguments?.getString("movieTitle") ?: "영화 제목 없음"
+        // val movieImageRes = arguments?.getInt("movieImage") ?: R.drawable.item_film_temporary
+
+        binding.movieTitle.text = movieTitle
+        //binding.movieImage.setImageResource(movieImageRes)
+
         setupRecyclerView()
         return binding.root
     }
@@ -40,7 +47,7 @@ class DetailFragment : Fragment() {
         binding.profileRecycler.adapter = profileAdapter
 
         // 레이아웃 매니저 설정
-        binding.profileRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.profileRecycler.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
-
 }
