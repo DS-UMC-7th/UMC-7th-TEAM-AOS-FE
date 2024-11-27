@@ -12,8 +12,10 @@ import com.example.mini7thumcapplication.databinding.FragmentDetailBinding
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
-
     private lateinit var profileAdapter: ProfileAdapter
+
+    private var likeCount = 0
+    private var dislikeCount = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,17 +24,15 @@ class DetailFragment : Fragment() {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
 
         val movieTitle = arguments?.getString("movieTitle") ?: "영화 제목 없음"
-        // val movieImageRes = arguments?.getInt("movieImage") ?: R.drawable.item_film_temporary
-
         binding.movieTitle.text = movieTitle
-        //binding.movieImage.setImageResource(movieImageRes)
 
         setupRecyclerView()
+        setupLikeDislikeButtons()
+
         return binding.root
     }
 
     private fun setupRecyclerView() {
-        // [감독 | 주연] 샘플 데이터 생성
         val profileData = listOf(
             ProfileData("장재현", "감독", R.drawable.item_film_temporary),
             ProfileData("최민식", "김상덕 역", R.drawable.item_film_temporary),
@@ -40,14 +40,35 @@ class DetailFragment : Fragment() {
             ProfileData("유해진", "고영근 역", R.drawable.item_film_temporary)
         )
 
-        // 어댑터 설정
         profileAdapter = ProfileAdapter(profileData)
-
-        // RecyclerView에 어댑터 설정
         binding.profileRecycler.adapter = profileAdapter
-
-        // 레이아웃 매니저 설정
         binding.profileRecycler.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    // <좋아요 / 싫어요> 관련 함수
+    private fun setupLikeDislikeButtons() {
+        updateLikeDislikeUI()
+
+        binding.btnLike.setOnClickListener {
+            likeCount++
+            updateLikeDislikeUI()
+        }
+
+        binding.btnDislike.setOnClickListener {
+            dislikeCount++
+            updateLikeDislikeUI()
+        }
+    }
+
+    private fun updateLikeDislikeUI() {
+        binding.likeCount.text = likeCount.toString()
+        binding.dislikeCount.text = dislikeCount.toString()
+
+        val total = likeCount + dislikeCount
+        if (total > 0) {
+            val likeRatio = (likeCount * 100) / total
+            binding.likeDislikeProgress.progress = likeRatio
+        }
     }
 }
