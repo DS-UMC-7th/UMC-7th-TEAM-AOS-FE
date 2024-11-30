@@ -14,6 +14,7 @@ public class JoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_join); // 회원가입 레이아웃 연결
 
+
         Button joinMembershipButton = findViewById(R.id.JoinMembershipButton);
         joinMembershipButton.setOnClickListener(v -> {
             // 유효성 검사 코드 작성
@@ -37,7 +38,7 @@ public class JoinActivity extends AppCompatActivity {
                 usernameErrorMessage.setVisibility(TextView.VISIBLE); // 오류 메시지 표시
                 return;
             } else {
-                usernameField.setBackgroundResource(R.drawable.normal_background); // 기본 배경
+                usernameField.setBackgroundResource(0); // 기본 배경 (배경 변경 안 함)
                 usernameErrorMessage.setVisibility(TextView.GONE); // 오류 메시지 숨기기
             }
 
@@ -55,7 +56,7 @@ public class JoinActivity extends AppCompatActivity {
                 nicknameErrorMessage.setVisibility(TextView.VISIBLE); // 오류 메시지 표시
                 return;
             } else {
-                nicknameField.setBackgroundResource(R.drawable.normal_background); // 기본 배경
+                nicknameField.setBackgroundResource(0); // 기본 배경 (배경 변경 안 함)
                 nicknameErrorMessage.setVisibility(TextView.GONE); // 오류 메시지 숨기기
             }
 
