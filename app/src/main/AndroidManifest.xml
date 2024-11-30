@@ -15,7 +15,7 @@
 
         <!-- 로그인 화면 -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +25,9 @@
 
         <!-- 회원가입 화면 -->
         <activity
-            android:name=".JoinActivity"
+            android:name=".Login.JoinActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>
