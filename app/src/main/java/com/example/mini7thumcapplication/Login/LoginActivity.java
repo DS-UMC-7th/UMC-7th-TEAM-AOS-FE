@@ -13,6 +13,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_login); // 로그인 레이아웃 연결
 
+        //회원가입버튼 연결
         Button joinButton = findViewById(R.id.joinButton);
         joinButton.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, JoinActivity.class);

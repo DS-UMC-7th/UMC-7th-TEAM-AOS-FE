@@ -18,7 +18,7 @@
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:layout_marginTop="75dp"
         android:background="@drawable/button"
         android:paddingStart="25dp"
@@ -32,7 +32,7 @@
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/button"
         android:paddingStart="25dp"
@@ -79,8 +79,8 @@
 
         <Button
             android:id="@+id/joinButton"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_width="60dp"
+            android:layout_height="18dp"
             android:background="@android:color/transparent"
             android:clickable="true"
             android:focusable="false"
