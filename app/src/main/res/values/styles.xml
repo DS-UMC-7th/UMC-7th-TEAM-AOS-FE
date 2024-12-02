@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 기본 스타일 -->
+    <style name="category_toggle">
+        <item name="thumbTint">@color/white</item>
+        <item name="track">@drawable/btn_toggle_style</item>
+        <item name="android:thumb">@drawable/btn_toggle_thumb</item>
+        <item name="android:enabled">true</item>
+    </style>
+
+    <!-- 변경된 스타일 (노란색) -->
+    <style name="category_toggle_up">
+        <item name="thumbTint">@color/white</item>
+        <item name="track">@drawable/btn_toggle_style_up</item>
+        <item name="android:thumb">@drawable/btn_toggle_thumb</item>
+        <item name="android:enabled">true</item>
+    </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="TopRoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+
+
+
+</resources>
