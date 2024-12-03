@@ -28,12 +28,12 @@ public class LoginActivity extends AppCompatActivity {
 
         //로그인버튼 연결
        Button loginButton = findViewById(R.id.loginButton);
-        joinButton.setOnClickListener(v -> {
+        loginButton.setOnClickListener(v -> {
             Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
             // 로그인이후 화면으로 이동후 스크립트 여기다쓰시면될거같습니다.
             // NavController를 가져와 MainFragment로 이동
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            navController.navigate(R.id.action_loginFragment_to_mainFragment);
+            //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            //navController.navigate(R.id.action_loginFragment_to_mainFragment);
 
         });
     }

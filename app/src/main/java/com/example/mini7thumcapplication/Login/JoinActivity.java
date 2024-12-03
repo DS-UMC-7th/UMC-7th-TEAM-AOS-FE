@@ -29,8 +29,8 @@ public class JoinActivity extends AppCompatActivity {
             String nickname = nicknameField.getText().toString().trim();
 
             TextView usernameErrorMessage = findViewById(R.id.usernameErrorMessage);
-            TextView passwordErrorMessage = findViewById(R.id.passwordErrorMessage);
-            TextView passwordcheckMessage = findViewById(R.id.passwordcheckMessage);
+            TextView PasswordErrorMessage = findViewById(R.id.PasswordErrorMessage);
+            TextView passwordcheckErrorMessage = findViewById(R.id.passwordcheckErrorMessage);
             TextView nicknameErrorMessage = findViewById(R.id.nicknameErrorMessage);
 
             // 아이디 유효성 검사 (영어와 숫자 조합, 4-12자)
@@ -43,12 +43,23 @@ public class JoinActivity extends AppCompatActivity {
                 usernameErrorMessage.setVisibility(TextView.GONE); // 오류 메시지 숨기기
             }
 
-            // 비밀번호와 비밀번호 확인 일치 여부 검사
-            if (!password.equals(confirmPassword)) {
-                passwordErrorMessage.setVisibility(TextView.VISIBLE); // 오류 메시지 표시
+            // 비밀번호 유효성 검사
+            TextView passwordErrorMessage = findViewById(R.id.PasswordErrorMessage);
+
+            if (!isPasswordValid(password)) {
+                passwordErrorMessage.setVisibility(TextView.VISIBLE);
                 return;
             } else {
-                passwordErrorMessage.setVisibility(TextView.GONE); // 오류 메시지 숨기기
+                passwordErrorMessage.setVisibility(TextView.GONE);
+            }
+
+
+            // 비밀번호와 비밀번호 확인 일치 여부 검사
+            if (!password.equals(confirmPassword)) {
+                passwordcheckErrorMessage.setVisibility(TextView.VISIBLE); // 오류 메시지 표시
+                return;
+            } else {
+                passwordcheckErrorMessage.setVisibility(TextView.GONE); // 오류 메시지 숨기기
             }
 
             // 닉네임 유효성 검사 (12자 이하)
@@ -71,6 +82,14 @@ public class JoinActivity extends AppCompatActivity {
         String usernamePattern = "^[A-Za-z0-9]{4,12}$"; // 영어와 숫자만 허용, 4~12자
         return username.matches(usernamePattern);
     }
+
+    //비밀번호 유효성 검사
+    private boolean isPasswordValid(String password) {
+        // 영어, 숫자, 특수문자를 포함하며, 6~20자
+        String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{6,20}$";
+        return password.matches(passwordPattern);
+    }
+
 
     // 닉네임 유효성 검사 (12자 이하)
     private boolean isNicknameValid(String nickname) {
