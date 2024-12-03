@@ -30,6 +30,7 @@ public class JoinActivity extends AppCompatActivity {
 
             TextView usernameErrorMessage = findViewById(R.id.usernameErrorMessage);
             TextView passwordErrorMessage = findViewById(R.id.passwordErrorMessage);
+            TextView passwordcheckMessage = findViewById(R.id.passwordcheckMessage);
             TextView nicknameErrorMessage = findViewById(R.id.nicknameErrorMessage);
 
             // 아이디 유효성 검사 (영어와 숫자 조합, 4-12자)
