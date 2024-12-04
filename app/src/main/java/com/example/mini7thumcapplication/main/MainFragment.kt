@@ -74,27 +74,27 @@ class MainFragment : Fragment() {
     // [오늘의 추천 영화] 샘플 데이터
     private fun getRecommendedMovies(): List<MovieData> {
         return listOf(
-            MovieData("조커", R.drawable.item_film_temporary),
-            MovieData("베테랑2", R.drawable.item_film_temporary),
-            MovieData("대도시의 사랑법", R.drawable.item_film_temporary),
+            MovieData("파묘", R.drawable.poster4),
+            MovieData("베테랑2", R.drawable.poster2),
+            MovieData("대도시의 사랑법", R.drawable.poster1),
         )
     }
 
     // [최근 개봉한 영화] 샘플 데이터
     private fun getRecentMovies(): List<MovieData> {
         return listOf(
-            MovieData("베테랑2", R.drawable.item_film_temporary),
-            MovieData("조커", R.drawable.item_film_temporary),
-            MovieData("파묘", R.drawable.item_film_temporary),
+            MovieData("위키드", R.drawable.poster5),
+            MovieData("조커: 폴리 아 되", R.drawable.poster3),
+            MovieData("베테랑2", R.drawable.poster2),
         )
     }
 
     // [리뷰가 좋은 영화] 샘플 데이터
     private fun getReviewMovies(): List<MovieData> {
         return listOf(
-            MovieData("대도시의 사랑법", R.drawable.item_film_temporary),
-            MovieData("파묘", R.drawable.item_film_temporary),
-            MovieData("조커", R.drawable.item_film_temporary),
+            MovieData("대도시의 사랑법", R.drawable.poster1),
+            MovieData("파묘", R.drawable.poster4),
+            MovieData("조커", R.drawable.poster3),
         )
     }
 
