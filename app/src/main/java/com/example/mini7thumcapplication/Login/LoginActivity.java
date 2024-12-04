@@ -1,7 +1,11 @@
 package com.example.mini7thumcapplication.Login;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +27,14 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        //로그인버튼 연결
+//        Button loginButton = findViewById(R.id.loginButton);
+//        joinButton.setOnClickListener(v -> {
+//            Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+//            // 로그인이후 화면으로 이동후 스크립트 여기다쓰시면될거같습니다.
+//        });
+
         // 로그인 버튼 연결
         Button loginButton = findViewById(R.id.loginButton); // 로그인 버튼 ID 확인
         loginButton.setOnClickListener(v -> {
@@ -34,5 +46,6 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("login Activity","액티비티 연결");
             finish(); // LoginActivity 종료
         });
+
     }
 }
