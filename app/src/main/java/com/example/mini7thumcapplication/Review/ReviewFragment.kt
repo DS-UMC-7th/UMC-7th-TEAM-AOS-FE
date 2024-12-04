@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -121,6 +122,11 @@ class ReviewFragment : Fragment() {
                 binding.categoryToggleIv.thumbTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
                 binding.categoryToggleIv.trackTintList = ContextCompat.getColorStateList(requireContext(), R.color.T_gray)
             }
+        }
+
+
+        binding.btnUpload.setOnClickListener {
+            Toast.makeText(context,"리뷰가 등록되었습니다!", Toast.LENGTH_SHORT).show();
         }
 
 
