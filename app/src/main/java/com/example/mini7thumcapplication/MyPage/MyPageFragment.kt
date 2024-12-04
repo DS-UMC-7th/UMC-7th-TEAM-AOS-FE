@@ -1,60 +1,79 @@
 package com.example.mini7thumcapplication.MyPage
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mini7thumcapplication.R
+import com.example.mini7thumcapplication.databinding.FragmentMyPageBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MyPageFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MyPageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentMyPageBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ReviewAdapter
+    private lateinit var reviews: List<Review>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_page, container, false)
-    }
+        _binding = FragmentMyPageBinding.inflate(inflater, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MyPageFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MyPageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        // RecyclerView 초기화
+        recyclerView = binding.recyclerReviews // Fragment에서 ViewBinding 사용하여 recyclerView 접근
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // 리뷰 데이터 생성
+        reviews = listOf(
+            Review(
+                name = "파묘",
+                starRating = "★ ★ ★ ★ ★",
+                score = 10,
+                date = "2024.11.21 13:43",
+                note = "배우들 연기가 진짜 미쳤음!! 특히 김고은 연기... 와 선배 배우들이 왜 칭찬했는지 알거 같음",
+                imageResId = R.drawable.item_film_temporary // 리소스를 직접 참조
+            ),
+            // 더 많은 리뷰 항목을 추가
+        )
+
+        // 어댑터 설정
+        adapter = ReviewAdapter(reviews)
+        recyclerView.adapter = adapter
+
+        // 최신순/별점순 메뉴 처리
+        binding.tvSortOption.setOnClickListener {
+            val popupMenu = PopupMenu(requireContext(), binding.tvSortOption)    // PopupMenu를 tv_sort_option에 연결
+            val inflater = popupMenu.menuInflater  // context -> 레이아웃 변환
+            inflater.inflate(R.menu.sort_menu, popupMenu.menu)  // sort_menu.xml 사용
+
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.sort_by_latest -> {
+                        binding.tvSortOption.text = "최신순"
+                        true
+                    }
+                    R.id.sort_by_rating -> {
+                        binding.tvSortOption.text = "별점순"
+                        true
+                    }
+                    else -> false
                 }
             }
+            popupMenu.show()
+        }
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
