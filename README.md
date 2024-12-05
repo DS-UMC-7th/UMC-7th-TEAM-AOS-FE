@@ -1,5 +1,30 @@
 # UMC-7th-TEAM-AOS-FE
 
+
+## 프로젝트 설명
+영화 리뷰와 좋아요를 남기고 다양한 추천을 받아볼 수 있는 앱 서비스입니다.
+
+## 사용 스택 및 라이브러리
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=Kotlin&logoColor=white"/>
+ 
+
+## 역할분담
+### BACKEND Developer
+| <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>|
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| <center> <img width="150px" /></center> | <center><img src="https://avatars.githubusercontent.com/u/128278212?v=4" width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/u/139426988?v=4"/></center> |
+| |[@znayeonzn](https://github.com/znayeonzn) | 
+
+
+### 초기 세팅
+
+
+### UI & API
+- 영화 목록 메인 및 상세 페이지 **`루비/송미`**
+- 리뷰 목록 및 작성 **`제트/아연`**
+- 회원가입 로그인 **`성실/지영`**
+- 마이페이지 **`지원`**
+
 ## 📌 Convention
 ### Branch Naming Convention
 - main
