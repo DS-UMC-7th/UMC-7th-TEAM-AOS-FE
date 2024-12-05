@@ -11,8 +11,8 @@
 ## 역할분담
 ### BACKEND Developer
 | <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>|
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| <center> <img width="150px" /></center> | <center><img src="https://avatars.githubusercontent.com/u/128278212?v=4" width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/u/139426988?v=4"/></center> |
+
+| <center> <img width="150px" /></center> | <center><img src="" width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px" src=""/></center> |
 | |[@znayeonzn](https://github.com/znayeonzn) | 
 
 
