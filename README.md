@@ -12,7 +12,7 @@
 | <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>| 
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
 | <center> <img width="150px" src="" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/znayeonzn" /></center> | 
-|  | |  | [@znayeonzn](https://github.com/znayeonzn) | 
+| [@dontworrywony](https://github.com/dontworrywony) | |  | [@znayeonzn](https://github.com/znayeonzn) | 
 <br/>
 
 
