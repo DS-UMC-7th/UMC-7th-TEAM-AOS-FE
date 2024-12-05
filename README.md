@@ -11,8 +11,8 @@
 ## 역할분담
 | <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>| 
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
-| <center> <img width="150px" src="https://avatars.githubusercontent.com/u/101341914?s=400&u=443602f146ba51794ad6fc641bbb5cbda29d41ba&v=4" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/znayeonzn" /></center> | 
-| [@dontworrywony](https://github.com/dontworrywony) | |  | [@znayeonzn](https://github.com/znayeonzn) | 
+| <center> <img width="150px" src="https://avatars.githubusercontent.com/u/101341914?s=400&u=443602f146ba51794ad6fc641bbb5cbda29d41ba&v=4" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/u/145523888?v=4" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/znayeonzn" /></center> | 
+| [@dontworrywony](https://github.com/dontworrywony) | | [@soooong7](https://github.com/soooong7) | [@znayeonzn](https://github.com/znayeonzn) | 
 <br/>
 
 
