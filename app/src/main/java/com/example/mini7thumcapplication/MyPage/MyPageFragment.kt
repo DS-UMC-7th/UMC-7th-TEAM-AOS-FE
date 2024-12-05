@@ -38,9 +38,41 @@ class MyPageFragment : Fragment() {
                 score = 10,
                 date = "2024.11.21 13:43",
                 note = "배우들 연기가 진짜 미쳤음!! 특히 김고은 연기... 와 선배 배우들이 왜 칭찬했는지 알거 같음",
-                imageResId = R.drawable.item_film_temporary // 리소스를 직접 참조
+                imageResId = R.drawable.movie1 // 리소스를 직접 참조
             ),
-            // 더 많은 리뷰 항목을 추가
+            Review(
+                name = "와일드 로봇",
+                starRating = "★ ★ ★ ★ ☆",
+                score = 8,
+                date = "2024.11.21. 13:43",
+                note = "초2,7살,저 모두 펑펑 울며 봤어요. 마음이 따뜻해지는 정말 좋은 영화였어요. 저에겐 오래도록 떠오르는 영화가 될 것 같은데, 관람석이 너무 한산해서 안타깝더라구요. 아이들과 꼭 보셨으면 좋겠어요~!!!",
+                imageResId = R.drawable.movie4 // 리소스를 직접 참조
+            ),
+            Review(
+                name = "노트북",
+                starRating = "★ ★ ★ ★ ★",
+                score = 10,
+                date = "2024.11.11. 12:43",
+                note = "어디가서 다시는 만나지 못할 제게 특별한 사람을 이 영화를 함께 보고 만나게 되었습니다. 특별할 것 없는 이야기인 것 같은데 왜인지 가슴이 뜨거워지고 벅찬 영화였습니다.",
+                imageResId = R.drawable.movie3 // 리소스를 직접 참조
+            ),
+            Review(
+                name = "대도시의 사랑법",
+                starRating = "★ ★ ★ ★ ★",
+                score = 10,
+                date = "2024.10.11. 11:43",
+                note = "올해 본 한국영화 중 더할 나위 없이 깔끔한 영화. 웃고 울다 보니 영화가 끝나있었다. 나의 대학 시절부터 우정까지, 많은 생각이 들었다. 행복한 기분은 덤 ㅎㅎ",
+                imageResId = R.drawable.movie5 // 리소스를 직접 참조
+            ),
+            Review(
+                name = "베테랑2",
+                starRating = "★ ★ ★ ★ ☆",
+                score = 8,
+                date = "2024.09.29. 12:43",
+                note = "정해인의 돌아버린 눈알을보면 그동안 했던 연기에서 볼 수 없었던 광기를 볼 수 있다.황정민 연기야 말하기 입아플정도,다만 같은 팀 동료들의 존재감과 분량은 많이 아쉽다.",
+                imageResId = R.drawable.movie2 // 리소스를 직접 참조
+            ),
+
         )
 
         // 어댑터 설정
