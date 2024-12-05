@@ -31,9 +31,10 @@ class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<Re
         val filmScore: TextView = itemView.findViewById(R.id.film_score)
         val filmDate: TextView = itemView.findViewById(R.id.film_date)
         val filmNote: TextView = itemView.findViewById(R.id.film_note)
+        val itemLayout: View = itemView // 전체 레이아웃
     }
 
-    // onCreateViewHolder: 뷰를 생성
+    // onCreateViewHolder: 뷰 생성
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_review_recyclerview, parent, false)
         return ReviewViewHolder(view)
@@ -42,14 +43,23 @@ class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<Re
     // onBindViewHolder: 데이터 바인딩
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         val review = reviews[position]
+
+        // 데이터 설정
         holder.filmName.text = review.name
         holder.filmStar.text = review.starRating
         holder.filmScore.text = review.score.toString()
         holder.filmDate.text = review.date
         holder.filmNote.text = review.note
-        holder.itemFilm.setImageResource(review.imageResId) // 리소스 ID로 이미지를 설정
+        holder.itemFilm.setImageResource(review.imageResId)
+
+        // 배경색을 기존 서식 위에 Tint로 변경
+        if (position % 2 == 0) {
+            holder.itemLayout.backgroundTintList = holder.itemView.context.getColorStateList(R.color.Sub_Yellow) // 짝수
+        } else {
+            holder.itemLayout.backgroundTintList = holder.itemView.context.getColorStateList(R.color.sub3) // 홀수
+        }
     }
 
-    // getItemCount: 리스트의 아이템 개수 반환
+    // getItemCount: 아이템 개수 반환
     override fun getItemCount(): Int = reviews.size
 }
