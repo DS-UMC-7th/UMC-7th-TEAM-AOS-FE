@@ -59,7 +59,6 @@ class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<Re
             holder.itemLayout.backgroundTintList = holder.itemView.context.getColorStateList(R.color.sub3) // 홀수
         }
     }
-
     // getItemCount: 아이템 개수 반환
     override fun getItemCount(): Int = reviews.size
 }
