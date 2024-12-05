@@ -9,17 +9,16 @@
  
 
 ## 역할분담
-### FRONTEND Developer
-| <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>|
-
-| <center> <img width="150px" /></center> | <center><img src="" width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px" src=""/></center> |
-
-
-
-### 초기 세팅
+| <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>| 
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
+| <center> <img width="150px" src="" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="" /></center> | <center><img width="150px" src="https://avatars.githubusercontent.com/znayeonzn" /></center> | 
+|  | |  | [@znayeonzn](https://github.com/znayeonzn) | 
+<br/>
 
 
-### UI & API
+
+
+## UI & API
 - 영화 목록 메인 및 상세 페이지 **`루비/송미`**
 - 리뷰 목록 및 작성 **`제트/아연`**
 - 회원가입 로그인 **`성실/지영`**
