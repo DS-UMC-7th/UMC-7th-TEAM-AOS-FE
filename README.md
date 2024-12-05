@@ -9,11 +9,11 @@
  
 
 ## 역할분담
-### BACKEND Developer
+### FRONTEND Developer
 | <center>강지원</center>| <center>김지영</center>| <center>이송미</center>| <center>주아연</center>|
 
 | <center> <img width="150px" /></center> | <center><img src="" width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px"/></center> | <center><img width="150px" src=""/></center> |
-| |[@znayeonzn](https://github.com/znayeonzn) | 
+
 
 
 ### 초기 세팅
